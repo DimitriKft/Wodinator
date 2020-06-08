@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Wods choice{% endblock %}
+
+{% block body %}
+<h1>{{ wod.name }}</h1>
+<p>{{ wod.description }}</p>
+<img src="{{ wod.image }}" alt="">
+
+<div class="col-12 col-md-6 col-lg-4 col-xl-3">
+        <div class="card border-primary mb-3 mx-auto card-wod" style="maw-width:20rem">
+            <div class="card-header text-center">
+                <img src="{{ wod.image }}" class="card-img-top" alt="">
+            </div>
+            <div class="d-flex justify-content-center">
+                <a class="btn btn-primary align-center training-btn" href="{{ path('display_wod', {'id': wod.id}) }}">S'entrainer</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
