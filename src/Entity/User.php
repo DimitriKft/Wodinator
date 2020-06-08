@@ -35,7 +35,7 @@ class User
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $avatar;
+    private $avatar = "https://www.google.com/url?sa=i&url=https%3A%2F%2Felvets.gg%2Fstock-photo-64330069-businessman-icon-as-avatar-or-default-profile-picture%2F&psig=AOvVaw1ZhmfPiXXNZaw6ffiUzVFd&ust=1591714927599000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPDdmqm-8ukCFQAAAAAdAAAAABAD";
 
     /**
      * @ORM\Column(type="boolean")
