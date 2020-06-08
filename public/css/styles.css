@@ -1,9 +1,13 @@
 .card-wod
 {
-    margin-top: 1em;
+    margin: 1em;
 }
 
 .card-wod-text
 {
-    height: 12em;
+    height: 8em;
+}
+.training-btn
+{
+    margin: 1em;
 }
