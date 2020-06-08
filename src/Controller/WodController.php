@@ -2,18 +2,20 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\WodRepository;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class WodController extends AbstractController
 {
     /**
-     * @Route("/wod", name="wod")
+     * @Route("/wods", name="wods")
      */
-    public function index()
+    public function index(WodRepository $repo)
     {
-        return $this->render('wod/index.html.twig', [
-            'controller_name' => 'WodController',
+        $wods = $repo->findAll();
+        return $this->render('wod/wods.html.twig', [
+            'wods' => $wods
         ]);
     }
 }
