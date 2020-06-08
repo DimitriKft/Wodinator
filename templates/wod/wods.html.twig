@@ -3,20 +3,18 @@
 {% block title %}Hello WodController!{% endblock %}
 
 {% block body %}
-    <h1>Page des wods</h1>
-    <img src="images/death_burpee_medium.pdf" alt="">
-    {% for wod in wods %}
-           <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-            <div class="card border-primary mb-3 mx-auto" style="maw-width:20rem">
-                <div class="card-header text-center">
-                    <img src="{{ wod.wodBegginer }}" class="perso_imgAliment card-img-top" alt="">
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title text-center pb-2 mx-3 border-bottom border-primary">{{ wod.description }}</h3>
-                    <p class="card-text">
-                    </p>
+    <div class="row">
+        {% for wod in wods %}
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                <div class="card border-primary mb-3 mx-auto card-wod" style="maw-width:20rem">
+                    <div class="card-header text-center">
+                        <img src="{{ wod.wodBegginer }}" class="perso_imgAliment card-img-top" alt="">
+                    </div>
+                    <div class="card-body card-wod-text">
+                        <h3 class="card-title text-center pb-2 mx-3">{{ wod.description }}</h3>
+                    </div>
                 </div>
             </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 {% endblock %}
