@@ -6,9 +6,9 @@ use App\Entity\Wod;
 use App\Form\WodType;
 use App\Repository\WodRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 
 class AdminWodController extends AbstractController
 {
@@ -50,5 +50,19 @@ class AdminWodController extends AbstractController
             "form" => $form->createView(),
             "isUpdate" => $wod->getId() !== null
         ]);
+    }
+
+    /**
+    * @Route("/admin/wod/{id}", name="admin_wod_delete", methods="delete")
+    */
+    public function delete(Wod $wod, Request $request, EntityManagerInterface $em)
+    {
+        if($this->isCsrfTokenValid("SUP" . $wod->getId(), $request->get('_token')))
+        {
+            $em->remove($wod);
+            $em->flush();
+            $this->addFlash("success", "la suppression a été effectuée");
+            return $this->redirectToRoute('admin_wod');
+        }
     }
 }
